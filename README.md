@@ -1,7 +1,8 @@
-# JobPalm Web
+# ZQ Forge Web
 
-Public legal and support pages for JobPalm.
+Public developer, legal, and support pages hosted at [zqforge.com](https://zqforge.com/).
 
-- [Privacy Policy](https://jobpalm-app.github.io/jobpalm-web/privacy.html)
+- [JobPalm Privacy Policy](https://zqforge.com/privacy.html)
+- [JobPalm Support](https://zqforge.com/support.html)
 
 The JobPalm iOS source code is maintained separately and is not included in this repository.

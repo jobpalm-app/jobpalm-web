@@ -3,11 +3,50 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="refresh" content="0; url=privacy.html">
-  <link rel="canonical" href="https://jobpalm-app.github.io/jobpalm-web/privacy.html">
-  <title>JobPalm</title>
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="ZQ Forge creates focused, privacy-conscious software for independent work.">
+  <link rel="canonical" href="https://zqforge.com/">
+  <title>ZQ Forge</title>
+  <style>
+    :root { color-scheme: light dark; --forest: #173d30; --palm: #225745; --mint: #dcebe4; --ivory: #fbf8ef; --ink: #17322a; --muted: #587067; --card: rgba(255,255,255,.84); --line: rgba(34,87,69,.16); --shadow: 0 18px 50px rgba(23,61,48,.10); }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--ink); background: radial-gradient(circle at 10% 0%, rgba(220,235,228,.95), transparent 34rem), linear-gradient(180deg, var(--ivory), #f5f2e9); line-height: 1.6; }
+    a { color: inherit; }
+    .shell { width: min(960px, calc(100% - 32px)); margin: 0 auto; padding: 28px 0 64px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 760; letter-spacing: -.02em; }
+    .brand-mark { display: grid; width: 42px; height: 42px; place-items: center; border-radius: 13px; color: white; background: var(--palm); box-shadow: 0 8px 20px rgba(34,87,69,.20); }
+    .hero { margin-top: 54px; padding: clamp(32px, 7vw, 68px); border: 1px solid var(--line); border-radius: 32px; background: var(--card); box-shadow: var(--shadow); }
+    .eyebrow { margin: 0 0 12px; color: var(--palm); font-size: .82rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    h1 { max-width: 760px; margin: 0; font-size: clamp(2.6rem, 8vw, 5.8rem); line-height: .98; letter-spacing: -.06em; }
+    .intro { max-width: 680px; margin: 24px 0 0; color: var(--muted); font-size: clamp(1.05rem, 2.4vw, 1.28rem); }
+    .section-title { margin: 46px 4px 18px; font-size: 1.1rem; letter-spacing: -.02em; }
+    .app-card { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 22px; padding: 24px; border: 1px solid var(--line); border-radius: 26px; background: var(--card); box-shadow: var(--shadow); }
+    .app-icon { display: grid; width: 68px; height: 68px; place-items: center; border-radius: 20px; color: white; background: var(--forest); font-size: 1.7rem; font-weight: 800; }
+    .app-card h2 { margin: 0 0 4px; font-size: 1.4rem; }
+    .app-card p { margin: 0; color: var(--muted); }
+    .links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; }
+    .links a { padding: 10px 15px; border: 1px solid var(--line); border-radius: 999px; color: var(--palm); font-weight: 700; text-decoration: none; }
+    .links a:hover { background: var(--mint); }
+    footer { padding: 34px 8px 0; color: var(--muted); font-size: .86rem; text-align: center; }
+    @media (max-width: 720px) { .shell { width: min(100% - 22px, 960px); padding-top: 18px; } .hero { margin-top: 36px; border-radius: 24px; } .app-card { grid-template-columns: auto 1fr; border-radius: 22px; } .links { grid-column: 1 / -1; justify-content: flex-start; } }
+    @media (prefers-color-scheme: dark) { :root { --ivory: #101713; --ink: #edf5f0; --muted: #adbbb4; --card: rgba(24,34,29,.9); --mint: #203c31; --line: rgba(221,238,229,.13); --shadow: none; } body { background: radial-gradient(circle at 10% 0%, rgba(34,87,69,.32), transparent 34rem), #101713; } .eyebrow, .links a { color: #9fd5bd; } }
+  </style>
 </head>
 <body>
-  <p><a href="privacy.html">Open the JobPalm Privacy Policy</a></p>
+  <main class="shell">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">ZQ</span><span>ZQ Forge</span></div>
+    <header class="hero">
+      <p class="eyebrow">Independent software</p>
+      <h1>Useful tools, thoughtfully made.</h1>
+      <p class="intro">ZQ Forge creates focused software for independent work, with clear data practices and support you can reach.</p>
+    </header>
+    <h2 class="section-title">Apps</h2>
+    <section class="app-card" aria-labelledby="jobpalm-title">
+      <div class="app-icon" aria-hidden="true">J</div>
+      <div><h2 id="jobpalm-title">JobPalm</h2><p>A local-first workspace for independent service businesses.</p></div>
+      <nav class="links" aria-label="JobPalm legal and support links"><a href="privacy.html">Privacy</a><a href="support.html">Support</a></nav>
+    </section>
+    <footer>© 2026 ZQ Forge</footer>
+  </main>
 </body>
 </html>

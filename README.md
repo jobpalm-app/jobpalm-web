@@ -4,5 +4,8 @@ Public developer, legal, and support pages hosted at [zqforge.com](https://zqfor
 
 - [JobPalm Privacy Policy](https://zqforge.com/jobpalm/privacy/)
 - [JobPalm Support](https://zqforge.com/jobpalm/support/)
+- [FieldPalm Privacy Policy](https://zqforge.com/fieldpalm/privacy/)
+- [FieldPalm Support](https://zqforge.com/fieldpalm/support/)
+- [FieldPalm Terms of Use](https://zqforge.com/fieldpalm/terms/)
 
 The JobPalm iOS source code is maintained separately and is not included in this repository.

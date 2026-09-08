@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#173d30">
+  <meta name="description" content="JobPalm is a local-first iPhone workspace for independent service businesses. Schedule visits, organize clients, and track payment records without creating an account.">
+  <link rel="canonical" href="https://zqforge.com/jobpalm/">
+  <link rel="icon" href="assets/icon.png">
+  <title>JobPalm — Your service day, organized</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --forest: #173d30;
+      --palm: #225745;
+      --leaf: #2f8d6d;
+      --mint: #dcebe4;
+      --mint-soft: #edf5f0;
+      --ivory: #fbf8ef;
+      --ink: #17322a;
+      --muted: #5b7068;
+      --card: rgba(255, 255, 255, .86);
+      --line: rgba(34, 87, 69, .15);
+      --shadow: 0 24px 70px rgba(23, 61, 48, .12);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% -4%, rgba(220, 235, 228, .95), transparent 34rem),
+        radial-gradient(circle at 96% 20%, rgba(245, 218, 151, .2), transparent 28rem),
+        linear-gradient(180deg, var(--ivory), #f4f1e8);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    button { font: inherit; }
+    .shell { width: min(1160px, calc(100% - 36px)); margin: 0 auto; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 22px 0; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; font-weight: 780; letter-spacing: -.02em; text-decoration: none; }
+    .brand img { width: 42px; height: 42px; border-radius: 13px; box-shadow: 0 8px 24px rgba(23, 61, 48, .2); }
+    .top-actions { display: flex; align-items: center; gap: 12px; }
+    .forge-link { color: var(--muted); font-size: .9rem; font-weight: 700; text-decoration: none; }
+    .language-switcher { display: inline-flex; padding: 4px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255, 255, 255, .65); }
+    .language-switcher button { border: 0; border-radius: 999px; padding: 7px 11px; color: var(--muted); background: transparent; font-size: .82rem; font-weight: 720; cursor: pointer; }
+    .language-switcher button[aria-pressed="true"] { color: white; background: var(--palm); }
+    .hero { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(300px, .72fr); align-items: center; gap: clamp(36px, 7vw, 86px); padding: clamp(38px, 7vw, 78px); overflow: hidden; border: 1px solid var(--line); border-radius: 36px; background: var(--card); box-shadow: var(--shadow); }
+    .eyebrow { margin: 0 0 14px; color: var(--palm); font-size: .8rem; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
+    h1 { max-width: 680px; margin: 0; font-size: clamp(3.15rem, 7.2vw, 6.3rem); line-height: .94; letter-spacing: -.065em; }
+    .lead { max-width: 650px; margin: 24px 0 0; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.28rem); }
+    .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 30px; }
+    .primary-cta, .secondary-cta { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 20px; border-radius: 999px; font-weight: 780; text-decoration: none; }
+    .primary-cta { color: white; background: var(--forest); box-shadow: 0 12px 26px rgba(23, 61, 48, .22); }
+    .secondary-cta { border: 1px solid var(--line); color: var(--palm); background: var(--mint-soft); }
+    .note { margin: 14px 0 0; color: var(--muted); font-size: .84rem; }
+    .hero-visual { position: relative; min-height: 610px; }
+    .hero-visual::before { content: ""; position: absolute; inset: 11% -18% 6%; border-radius: 50%; background: radial-gradient(circle, rgba(47, 141, 109, .26), rgba(47, 141, 109, 0) 68%); filter: blur(4px); }
+    .phone { position: absolute; inset: 0 6% 0 auto; width: min(330px, 92%); overflow: hidden; border: 8px solid #16201c; border-radius: 54px; background: #000; box-shadow: 0 32px 70px rgba(13, 30, 24, .28); transform: rotate(2.5deg); }
+    .phone img { width: 100%; height: 100%; object-fit: cover; }
+    .trust-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 18px 0 0; }
+    .trust-item { padding: 18px 20px; border: 1px solid var(--line); border-radius: 20px; background: rgba(255, 255, 255, .66); }
+    .trust-item strong { display: block; font-size: 1rem; }
+    .trust-item span { color: var(--muted); font-size: .86rem; }
+    .section { padding: clamp(70px, 9vw, 110px) 0 0; }
+    .section-heading { max-width: 760px; margin-bottom: 30px; }
+    .section-heading h2 { margin: 0; font-size: clamp(2.25rem, 5vw, 4.2rem); line-height: 1; letter-spacing: -.055em; }
+    .section-heading p { margin: 16px 0 0; color: var(--muted); font-size: 1.05rem; }
+    .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .feature { padding: 28px; border: 1px solid var(--line); border-radius: 26px; background: var(--card); box-shadow: 0 14px 40px rgba(23, 61, 48, .07); }
+    .feature-icon { display: grid; width: 48px; height: 48px; place-items: center; margin-bottom: 24px; border-radius: 15px; color: white; background: var(--palm); font-size: 1.3rem; }
+    .feature h3 { margin: 0 0 8px; font-size: 1.35rem; letter-spacing: -.025em; }
+    .feature p { margin: 0; color: var(--muted); }
+    .gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; align-items: end; }
+    .gallery figure { margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 28px; background: var(--card); box-shadow: var(--shadow); }
+    .gallery img { width: 100%; height: auto; }
+    .privacy-card { display: grid; grid-template-columns: 1.1fr .9fr; gap: 34px; padding: clamp(32px, 6vw, 66px); border-radius: 32px; color: white; background: linear-gradient(135deg, var(--forest), #0f2a21); box-shadow: var(--shadow); }
+    .privacy-card h2 { margin: 0; font-size: clamp(2.25rem, 5vw, 4.1rem); line-height: 1; letter-spacing: -.055em; }
+    .privacy-card p { margin: 18px 0 0; color: rgba(255, 255, 255, .76); }
+    .privacy-list { display: grid; gap: 12px; align-content: center; }
+    .privacy-list div { padding: 16px 18px; border: 1px solid rgba(255, 255, 255, .14); border-radius: 18px; background: rgba(255, 255, 255, .07); font-weight: 720; }
+    .pricing { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .plan { padding: 30px; border: 1px solid var(--line); border-radius: 28px; background: var(--card); }
+    .plan.pro { color: white; background: linear-gradient(145deg, #225745, #173d30); }
+    .plan h3 { margin: 0; font-size: 1.65rem; }
+    .plan .price { margin: 8px 0 16px; font-size: 1.12rem; font-weight: 800; }
+    .plan p { margin: 0; color: var(--muted); }
+    .plan.pro p { color: rgba(255, 255, 255, .75); }
+    .closing { padding: 84px 0 42px; text-align: center; }
+    .closing img { width: 76px; height: 76px; margin: 0 auto 18px; border-radius: 22px; box-shadow: 0 16px 36px rgba(23, 61, 48, .18); }
+    .closing h2 { margin: 0; font-size: clamp(2.2rem, 5vw, 4rem); letter-spacing: -.055em; }
+    .closing p { max-width: 580px; margin: 12px auto 24px; color: var(--muted); }
+    footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; padding: 28px 0 44px; border-top: 1px solid var(--line); color: var(--muted); font-size: .86rem; }
+    footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
+    footer a { color: var(--palm); font-weight: 700; text-decoration: none; }
+    [hidden] { display: none !important; }
+    @media (max-width: 920px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 570px; }
+      .phone { inset: 0 auto 0 50%; transform: translateX(-50%) rotate(1.5deg); }
+      .feature-grid { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+      .privacy-card { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .shell { width: min(100% - 22px, 1160px); }
+      .topbar { padding-top: 14px; }
+      .forge-link { display: none; }
+      .hero { padding: 28px 22px 34px; border-radius: 26px; }
+      h1 { font-size: clamp(3rem, 16vw, 4.5rem); }
+      .hero-visual { min-height: 500px; }
+      .phone { width: min(286px, 90%); border-radius: 46px; }
+      .trust-strip, .pricing { grid-template-columns: 1fr; }
+      .gallery { gap: 10px; }
+      .gallery figure { border-radius: 19px; }
+      .privacy-card { border-radius: 26px; }
+      footer { justify-content: center; text-align: center; }
+      footer nav { justify-content: center; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    @media (prefers-color-scheme: dark) {
+      :root { --ivory: #0e1512; --ink: #edf5f0; --muted: #acbbb4; --card: rgba(24, 34, 29, .9); --mint: #203c31; --mint-soft: #1b3329; --line: rgba(221, 238, 229, .13); --shadow: none; }
+      body { background: radial-gradient(circle at 8% -4%, rgba(34, 87, 69, .35), transparent 34rem), #0e1512; }
+      .language-switcher, .trust-item { background: rgba(24, 34, 29, .78); }
+      .primary-cta { color: #10241c; background: #9fe0c2; }
+      .secondary-cta, footer a, .eyebrow { color: #9fe0c2; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="JobPalm home"><img src="assets/icon.png" alt=""><span>JobPalm</span></a>
+      <div class="top-actions">
+        <a class="forge-link" href="../">ZQ Forge</a>
+        <div class="language-switcher" aria-label="Language"><button type="button" data-language="en" aria-pressed="true">English</button><button type="button" data-language="zh" aria-pressed="false">中文</button></div>
+      </div>
+    </header>
+
+    <div data-panel="en">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">For independent service businesses</p>
+          <h1>Your service day, organized.</h1>
+          <p class="lead">Keep clients, visits, estimates, and payment records together on your iPhone—without creating a JobPalm account.</p>
+          <div class="cta-row"><a class="primary-cta" href="https://apps.apple.com/app/id6807484940" rel="noopener noreferrer">View on the App Store</a><a class="secondary-cta" href="#features">See how it works</a></div>
+          <p class="note">Free to start · Local-first · Pro is a one-time purchase</p>
+        </div>
+        <div class="hero-visual" aria-label="JobPalm app preview"><div class="phone"><img src="assets/screenshots/day.png" alt="JobPalm Today screen showing visits and daily receipts"></div></div>
+      </section>
+      <div class="trust-strip" aria-label="JobPalm highlights"><div class="trust-item"><strong>No account required</strong><span>Start organizing immediately.</span></div><div class="trust-item"><strong>Your data stays local</strong><span>Export backups you control.</span></div><div class="trust-item"><strong>No subscription</strong><span>Pro is a one-time unlock.</span></div></div>
+
+      <section class="section" id="features">
+        <div class="section-heading"><p class="eyebrow">One clear workspace</p><h2>From the next visit to the final record.</h2><p>JobPalm is designed around the real flow of independent service work—not around a complicated CRM.</p></div>
+        <div class="feature-grid">
+          <article class="feature"><div class="feature-icon" aria-hidden="true">◷</div><h3>Plan visits</h3><p>Schedule one-time or repeating work and see the day ahead at a glance.</p></article>
+          <article class="feature"><div class="feature-icon" aria-hidden="true">◎</div><h3>Know every client</h3><p>Keep addresses, contact details, notes, tasks, and service history together.</p></article>
+          <article class="feature"><div class="feature-icon" aria-hidden="true">✓</div><h3>Close the loop</h3><p>Create estimates, record completed work, and track payment records without moving money.</p></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading"><p class="eyebrow">Built for the workday</p><h2>Less scrambling. More clarity.</h2></div>
+        <div class="gallery">
+          <figure><img loading="lazy" src="assets/screenshots/day.png" alt="JobPalm daily dashboard"></figure>
+          <figure><img loading="lazy" src="assets/screenshots/schedule.png" alt="JobPalm visit scheduling"></figure>
+          <figure><img loading="lazy" src="assets/screenshots/clients.png" alt="JobPalm client organization"></figure>
+          <figure><img loading="lazy" src="assets/screenshots/payments.png" alt="JobPalm payment records"></figure>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="privacy-card"><div><p class="eyebrow">Local-first by design</p><h2>Your business data stays in your hands.</h2><p>JobPalm does not require an account and does not include third-party advertising or analytics SDKs. Export complete backups and reports whenever you need them.</p></div><div class="privacy-list"><div>No JobPalm login</div><div>No ads or third-party analytics SDKs</div><div>CSV reports and complete ZIP backups</div></div></div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading"><p class="eyebrow">Simple access</p><h2>Start free. Grow when you need to.</h2></div>
+        <div class="pricing"><article class="plan"><h3>Free</h3><p class="price">Up to 10 active clients</p><p>Scheduling, repeat visits, payment records, standard PDFs, CSV reports, backups, and restore remain available.</p></article><article class="plan pro"><h3>JobPalm Pro</h3><p class="price">One-time purchase</p><p>Unlock more than 10 active clients and custom estimate branding. No subscription.</p></article></div>
+      </section>
+
+      <section class="closing"><img src="assets/icon.png" alt=""><h2>Give your next workday a calmer shape.</h2><p>JobPalm is available for iPhone on the App Store.</p><a class="primary-cta" href="https://apps.apple.com/app/id6807484940" rel="noopener noreferrer">Get JobPalm</a></section>
+    </div>
+
+    <div data-panel="zh" lang="zh-CN" hidden>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">为独立服务从业者而设计</p>
+          <h1>把每天的服务工作，理清楚。</h1>
+          <p class="lead">在 iPhone 上统一管理客户、上门服务、报价与收款记录，无需注册 JobPalm 账户。</p>
+          <div class="cta-row"><a class="primary-cta" href="https://apps.apple.com/app/id6807484940" rel="noopener noreferrer">前往 App Store</a><a class="secondary-cta" href="#zh-features">了解功能</a></div>
+          <p class="note">免费开始 · 本地优先 · Pro 一次购买</p>
+        </div>
+        <div class="hero-visual" aria-label="JobPalm App 预览"><div class="phone"><img src="assets/screenshots/day.png" alt="JobPalm 今日页面，显示服务安排和当天收款记录"></div></div>
+      </section>
+      <div class="trust-strip" aria-label="JobPalm 特点"><div class="trust-item"><strong>无需注册账户</strong><span>打开 App 就能开始整理。</span></div><div class="trust-item"><strong>数据保存在本地</strong><span>完整备份由你掌控。</span></div><div class="trust-item"><strong>没有订阅</strong><span>Pro 为一次性解锁。</span></div></div>
+
+      <section class="section" id="zh-features">
+        <div class="section-heading"><p class="eyebrow">一个清晰的工作空间</p><h2>从下一次服务，到最后一笔记录。</h2><p>JobPalm 按照独立服务工作的真实流程设计，不需要学习复杂的 CRM。</p></div>
+        <div class="feature-grid">
+          <article class="feature"><div class="feature-icon" aria-hidden="true">◷</div><h3>安排服务</h3><p>创建单次或重复服务，快速查看今天和接下来的安排。</p></article>
+          <article class="feature"><div class="feature-icon" aria-hidden="true">◎</div><h3>整理客户</h3><p>集中保存地址、联系方式、备注、任务与历史服务记录。</p></article>
+          <article class="feature"><div class="feature-icon" aria-hidden="true">✓</div><h3>完成闭环</h3><p>创建报价、记录已完成工作并跟踪收款记录；JobPalm 不处理真实资金。</p></article>
+        </div>
+      </section>
+
+      <section class="section"><div class="section-heading"><p class="eyebrow">为真实工作日而做</p><h2>少一点忙乱，多一点清晰。</h2></div><div class="gallery"><figure><img loading="lazy" src="assets/screenshots/day.png" alt="JobPalm 今日概览"></figure><figure><img loading="lazy" src="assets/screenshots/schedule.png" alt="JobPalm 服务日程"></figure><figure><img loading="lazy" src="assets/screenshots/clients.png" alt="JobPalm 客户管理"></figure><figure><img loading="lazy" src="assets/screenshots/payments.png" alt="JobPalm 收款记录"></figure></div></section>
+
+      <section class="section"><div class="privacy-card"><div><p class="eyebrow">本地优先</p><h2>你的业务数据，由你掌控。</h2><p>JobPalm 不要求注册账户，也不包含第三方广告或分析 SDK。你可以随时导出完整备份和报表。</p></div><div class="privacy-list"><div>无需 JobPalm 登录</div><div>无广告与第三方分析 SDK</div><div>支持 CSV 报表与完整 ZIP 备份</div></div></div></section>
+
+      <section class="section"><div class="section-heading"><p class="eyebrow">简单清楚</p><h2>免费开始，需要时再升级。</h2></div><div class="pricing"><article class="plan"><h3>免费版</h3><p class="price">最多 10 位活跃客户</p><p>服务安排、重复服务、收款记录、标准 PDF、CSV 报表、备份和恢复均可使用。</p></article><article class="plan pro"><h3>JobPalm Pro</h3><p class="price">一次性购买</p><p>解锁超过 10 位活跃客户及自定义报价单品牌，不是订阅。</p></article></div></section>
+
+      <section class="closing"><img src="assets/icon.png" alt=""><h2>让下一个工作日，更从容一点。</h2><p>JobPalm iPhone 版现已在 App Store 上架。</p><a class="primary-cta" href="https://apps.apple.com/app/id6807484940" rel="noopener noreferrer">获取 JobPalm</a></section>
+    </div>
+
+    <footer><span>© 2026 ZQ Forge · JobPalm</span><nav aria-label="Footer"><a href="privacy/">Privacy</a><a href="support/">Support</a><a href="mailto:jobpalm.support@proton.me">Contact</a><a href="../">All apps</a></nav></footer>
+  </main>
+  <script>
+    (() => {
+      const buttons = [...document.querySelectorAll("[data-language]")];
+      const panels = [...document.querySelectorAll("[data-panel]")];
+      function showLanguage(language, updateHash = true) {
+        const selected = language === "zh" ? "zh" : "en";
+        panels.forEach((panel) => { panel.hidden = panel.dataset.panel !== selected; });
+        buttons.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.language === selected)));
+        document.documentElement.lang = selected === "zh" ? "zh-CN" : "en";
+        document.title = selected === "zh" ? "JobPalm — 把每天的服务工作理清楚" : "JobPalm — Your service day, organized";
+        if (updateHash) history.replaceState(null, "", `#${selected}`);
+      }
+      buttons.forEach((button) => button.addEventListener("click", () => showLanguage(button.dataset.language)));
+      const requested = location.hash.slice(1);
+      const initial = requested === "zh" || requested === "en" ? requested : (navigator.language || "").toLowerCase().startsWith("zh") ? "zh" : "en";
+      showLanguage(initial, false);
+    })();
+  </script>
+</body>
+</html>
